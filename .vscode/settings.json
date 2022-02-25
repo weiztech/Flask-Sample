@@ -1,0 +1,8 @@
+{
+    "terminal.integrated.fontSize": 14,
+    "python.envFile": "${workspaceFolder}/env",
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=120"
+    ],
+}
