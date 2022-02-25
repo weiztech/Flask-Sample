@@ -2,9 +2,6 @@
 
 ###### Documentation-Driven Development API Using Flask
 
-#
-
-#
 
 ## Run Server
 
@@ -39,15 +36,11 @@ Documentation url can be access after run server
 
 ##### Swagger
 
-#
-
 ```
 http://localhost:5000/doc/swagger-ui
 ```
 
 ##### Redoc
-
-#
 
 ```
 http://localhost:5000/doc/redoc
@@ -55,15 +48,12 @@ http://localhost:5000/doc/redoc
 
 ##### Rapidoc
 
-#
-
 ```
 http://localhost:5000/doc/rapidoc
 ```
 
 ## Test API
 
-#
 
 ```
 pytest
