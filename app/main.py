@@ -1,7 +1,6 @@
 import os
 
 import click
-from click.testing import CliRunner
 from flask_migrate.cli import upgrade
 
 from app.images import models as imodels
