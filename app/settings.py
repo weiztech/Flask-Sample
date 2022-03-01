@@ -1,6 +1,7 @@
 from os import environ
 
 from flask import Flask
+from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from flask_smorest import Api
@@ -34,6 +35,8 @@ api = Api(app)
 # Order matters: Initialize SQLAlchemy before Marshmallow
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
+
+migrate = Migrate(app, db)
 
 
 DepotManager.configure('images', {

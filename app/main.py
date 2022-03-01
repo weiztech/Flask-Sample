@@ -1,6 +1,8 @@
 import os
 
 import click
+from click.testing import CliRunner
+from flask_migrate.cli import upgrade
 
 from app.images import models as imodels
 from app.products import models as pmodels
@@ -15,12 +17,10 @@ from .settings import api, app, db
 FILE_PATH = os.path.dirname(os.path.abspath(__file__))
 
 
-@click.command('init-db')
-def init_db_command():
-    """Clear the existing data and create new tables."""
-    db.create_all()
-    click.echo('Initialized the database.')
-
+@click.command('sample-data')
+def sample_data_command():
+    """Add sample data"""
+    click.echo('Add sample data')
     im, im1 = imodels.Image(file=open(os.path.join(FILE_PATH, "media/image-potrait_op_1.jpeg"), "rb")),\
         imodels.Image(file=open(os.path.join(FILE_PATH, "media/bg_landscape_op_0.12.jpg"), "rb"))
     db.session.add_all([im, im1])
@@ -33,8 +33,16 @@ def init_db_command():
     vd1 = vsmodels.Variant(name="Laser G Beem", product=pd, logo=im)
     db.session.add_all([vd, vd1])
     db.session.commit()
-
     click.echo('Sample data created successfully.')
+
+
+@click.command('init-db')
+@click.pass_context
+def init_db_command(ctx):
+    """Create database table's with sample data"""
+    click.echo('Initialized the database.')
+    ctx.forward(upgrade)
+    ctx.forward(sample_data_command)
 
 
 def create_app():

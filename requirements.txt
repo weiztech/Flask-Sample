@@ -6,3 +6,4 @@ flask-marshmallow==0.14.0
 python-slugify==6.0.1
 pytest==7.0.1
 mysqlclient==2.1.0
+flask-migrate==3.1.0
