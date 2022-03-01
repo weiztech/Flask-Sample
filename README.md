@@ -8,7 +8,7 @@
 
 ## Run Server
 
-Go to app dir
+Create Mysql database with name `flask_sample` and Go to app dir
 
 ```
 cd app
@@ -63,7 +63,7 @@ http://localhost:5000/doc/rapidoc
 
 ## Test API
 
-#
+on root Folder, run below command
 
 ```
 pytest
